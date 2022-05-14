@@ -1,5 +1,4 @@
 from http.server import BaseHTTPRequestHandler
-from urllib import parse
 import time
 
 class handler(BaseHTTPRequestHandler):
@@ -8,7 +7,7 @@ class handler(BaseHTTPRequestHandler):
     self.send_header("Content-Type", "text/plain")
     self.end_headers()
     
-    response = time.time()
+    response = str(time.time()).replace('.', '')
     self.wfile.write(response.encode())
     return
 
